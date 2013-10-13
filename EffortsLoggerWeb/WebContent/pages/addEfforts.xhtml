@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<script type="text/javascript">
+$(function() {
+		$( "#addEffortsForm\\:newEffortDate" ).datepicker();
+	});
+</script>
+</h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1>Add Efforts</h1>
+			<h:form id="addEffortsForm">
+				<h:panelGrid columns="2">
+
+					
+					<h:outputLabel value="#{lblMsg.efforts_description}" />
+					<h:inputText id="newEffortDesc"
+						value="#{effortsInfoBean.effortsInfo.description}" />
+
+
+					<h:outputLabel value="#{lblMsg.efforts_effortstype}" />
+					<h:selectOneMenu id="newEffortType"
+						value="#{effortsInfoBean.selectedEffortType}">
+						<f:selectItems value="#{effortsInfoBean.listOfEffortsType}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="#{lblMsg.efforts_effortssubtype}" />
+					<h:selectOneMenu id="newEffortSubType"
+						value="#{effortsInfoBean.selectedEffortSubType}">
+						<f:selectItems value="#{effortsInfoBean.listOfEffortsSubType}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="#{lblMsg.efforts_effortdate}" />
+					<h:inputText id="newEffortDate"
+						value="#{effortsInfoBean.effortsInfo.effortdate}" size="20" required="false"
+						label="Effort Date" converterMessage="#{errMsg.date_invalid_format}">
+
+						<f:convertDateTime pattern="dd-MM-yyyy" />
+					</h:inputText>
+
+					<h:outputLabel value="#{lblMsg.efforts_points}" />
+					<h:inputText id="newEffortPoints" onchange="checkPoints()"
+						value="#{effortsInfoBean.effortsInfo.points}">
+						<f:validateLongRange minimum="0" maximum="24" />
+					</h:inputText>
+
+					<h:outputLabel value="#{lblMsg.efforts_remarks}" />
+					<h:inputText id="newEffortRemarks"
+						value="#{effortsInfoBean.effortsInfo.remarks}" />
+
+					<h:commandButton value="#{lblMsg.add}" id="addNewEfforts"
+						action="#{effortsInfoBean.addEffortsInfo()}" />
+
+					<h:commandButton value="#{lblMsg.cancel}" id="cancelAddEfforts"
+						action="#{effortsInfoBean.cancel()}" />
+
+				</h:panelGrid>
+
+
+
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>
