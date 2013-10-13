@@ -49,7 +49,7 @@ public class EffortsTypeBean {
 		this.effortsService = effortsService;
 	}
 
-	public String viewEffortsTypeInfo(EffortsTypeBean typeBean) {
+	public String viewEffortsTypeInfo(Effortstype typeBean) {
 		JsfUtil.addRequestAttribute(EffortsConstants.EFFORTS_TYPE_INFO,
 				typeBean);
 		return NavigationOutCome.VIEW_EFFORTS_TYPE_INFO;

@@ -50,7 +50,7 @@ public class ProjectInfoBean {
 	}
 
 	public String viewProjectInfo(ProjectInfo project) {
-		JsfUtil.addSessionAttribute(EffortsConstants.PROJECT_INFO, project);
+		JsfUtil.addRequestAttribute(EffortsConstants.PROJECT_INFO, project);
 		return NavigationOutCome.VIEW_PROJECTS_INFO;
 	}
 
