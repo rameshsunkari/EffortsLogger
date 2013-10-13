@@ -15,4 +15,6 @@ public interface ProjectInfoServiceBeanLocal {
 
 	public ProjectInfo getProjectById(Long projectId);
 
+	public void updateProjectInfo(ProjectInfo project);
+
 }

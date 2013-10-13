@@ -31,7 +31,7 @@
   <location>/pages/errorPage.xhtml</location>
  </error-page>
  <error-page>
-  <exception-type>java.io.IOException</exception-type>
+  <exception-type>java.io.Exception</exception-type>
   <location>/pages/errorPage.xhtml</location>
  </error-page>
 </web-app>

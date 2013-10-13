@@ -1,5 +1,7 @@
 package com.efforts.user;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -11,14 +13,15 @@ import com.efforts.service.util.EffortsServiceConstants;
 import com.efforts.utilities.EffortsConstants;
 import com.efforts.utilities.EffortsServiceLocator;
 import com.efforts.utilities.JsfUtil;
+import com.efforts.utilities.NavigationOutCome;
 
 @ManagedBean
 @SessionScoped
-public class UserAccountBean {
-
-	private UserInfo userInfo;
+public class MemberInfoBean {
 
 	private UserServiceBeanLocal userService;
+	private UserInfo userInfo;
+
 	private boolean isLead;
 
 	@PostConstruct
@@ -26,15 +29,6 @@ public class UserAccountBean {
 		Long empId = (Long) JsfUtil
 				.getSessionAttribute(EffortsConstants.EMP_ID);
 		userInfo = getUserService().getUserInfo(empId);
-
-	}
-
-	public UserInfo getUserInfo() {
-		return userInfo;
-	}
-
-	public void setUserInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
 	}
 
 	public UserServiceBeanLocal getUserService() {
@@ -54,6 +48,26 @@ public class UserAccountBean {
 		this.userService = userService;
 	}
 
+	public String addNewMember() {
+		return NavigationOutCome.ADD_MEMBERS;
+	}
+
+	public List<UserInfo> getListOfMembers() {
+		return getUserService().getListOfMembers();
+	}
+
+	public List<UserInfo> getManagerMembersList() {
+		return getUserService().getManagerMembersList(userInfo.getEmpid());
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
 	public boolean isLead() {
 		return isLead;
 	}
@@ -62,4 +76,8 @@ public class UserAccountBean {
 		this.isLead = isLead;
 	}
 
+	public String viewMemberInfo(UserInfo member) {
+		JsfUtil.addRequestAttribute(EffortsConstants.MEMBER_INFO, member);
+		return NavigationOutCome.VIEW_MEMBERS_INFO;
+	}
 }

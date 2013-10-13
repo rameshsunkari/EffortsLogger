@@ -21,7 +21,8 @@
 						<!-- column header -->
 						<f:facet name="header">#{lblMsg.efforts_sub_type_id}</f:facet>
 						<!-- row record -->
-    					<h:outputText value="#{subType.id}" />
+						<h:commandLink action="#{effortsSubTypeBean.viewEffortsSubType(subType)}" value="#{subType.id}" />
+    					
     				</h:column>
     				
     				<h:column>

@@ -22,7 +22,9 @@ import com.efforts.utilities.NavigationOutCome;
 
 @ManagedBean
 @RequestScoped
-public class EffortsSubTypeBean {
+public class EffortsSubTypeDetailBean {
+
+	private boolean newSubType;
 
 	private UserInfo userInfo;
 	private Effortssubtype subType;
@@ -31,6 +33,7 @@ public class EffortsSubTypeBean {
 	private EffortsServiceBeanLocal effortsService;
 
 	private List<SelectItem> listOfEffortsType;
+	private Long selectedEffortType;
 
 	@PostConstruct
 	public void init() {
@@ -39,10 +42,26 @@ public class EffortsSubTypeBean {
 				.getSessionAttribute(EffortsConstants.EMP_ID);
 		userInfo = getUserService().getUserInfo(empId);
 
-	}
+		subType = (Effortssubtype) JsfUtil
+				.getRequestAttribute(EffortsConstants.EFFORTS_SUBTYPE_INFO);
 
-	public String addNewEffortsSubTypeBean() {
-		return NavigationOutCome.ADD_EFFORTS_SUB_TYPE;
+		List<Effortstype> effortsTypeList = getEffortsService()
+				.getAllEffortstype();
+		List<SelectItem> typeItemList = new ArrayList<SelectItem>();
+		typeItemList.add(new SelectItem("0", "Please Select a Effort Type"));
+		for (Effortstype type : effortsTypeList) {
+			typeItemList.add(new SelectItem(type.getId(), type.getName()));
+		}
+
+		setListOfEffortsType(typeItemList);
+
+		if (subType == null) {
+			newSubType = true;
+			subType = new Effortssubtype();
+		} else {
+			selectedEffortType = subType.getEffortstype().getId();
+		}
+
 	}
 
 	public UserInfo getUserInfo() {
@@ -101,14 +120,40 @@ public class EffortsSubTypeBean {
 		this.listOfEffortsType = listOfEffortsType;
 	}
 
-	public List<Effortssubtype> getAllEffortsSubType() {
-		return getEffortsService().getAllEffortssubtype();
+	public Long getSelectedEffortType() {
+		return selectedEffortType;
 	}
 
-	public String viewEffortsSubType(Effortssubtype subType) {
-		JsfUtil.addRequestAttribute(EffortsConstants.EFFORTS_SUBTYPE_INFO, subType);
+	public void setSelectedEffortType(Long selectedEffortType) {
+		this.selectedEffortType = selectedEffortType;
+	}
 
-		return NavigationOutCome.VIEW_EFFORTS_SUBTYPE_INFO;
+	public String cancel() {
+		return NavigationOutCome.VIEW_EFFORTS_SUB_TYPE;
+	}
+
+	public String saveEffortsSubType() {
+
+		Effortstype type = getEffortsService().getEffortTypeById(
+				getSelectedEffortType());
+
+		subType.setEffortstype(type);
+
+		if (newSubType) {
+			getEffortsService().addEffortsSubType(subType);
+		} else {
+			getEffortsService().updateEffortsSubType(subType);
+		}
+
+		return NavigationOutCome.VIEW_EFFORTS_SUB_TYPE;
+	}
+
+	public boolean isNewSubType() {
+		return newSubType;
+	}
+
+	public void setNewSubType(boolean newSubType) {
+		this.newSubType = newSubType;
 	}
 
 }

@@ -9,8 +9,6 @@ import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.log4j.Logger;
-
 import com.efforts.dao.UserInfoDAO;
 import com.efforts.model.UserInfo;
 
@@ -60,6 +58,12 @@ public class UserServiceBean implements UserServiceBeanLocal {
 	public List<UserInfo> getManagerMembersList(Long mgrId) {
 
 		return getUserDAO().getManagerMemberList(mgrId);
+	}
+
+	@Override
+	public void updateMember(UserInfo user) {
+		getUserDAO().edit(user);
+
 	}
 
 }

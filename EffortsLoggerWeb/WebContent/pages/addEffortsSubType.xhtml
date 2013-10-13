@@ -9,7 +9,7 @@
 	<ui:composition template="/pages/template/commonLayout.xhtml">
 
 		<ui:define name="content">
-			<h1>Add Efforts Sub Type</h1>
+			<h1> Effort Sub Type Detail</h1>
 
 			<h:form id="addEffortsSubTypeForm">
 				<h:panelGrid columns="2">
@@ -17,20 +17,21 @@
 
 					<h:outputLabel value="#{lblMsg.efforts_sub_type_name}" />
 					<h:inputText id="newEffortSubTypeName"
-						value="#{effortsSubTypeBean.subType.name}" />
+						value="#{effortsSubTypeDetailBean.subType.name}" />
 
 					<h:outputLabel value="#{lblMsg.efforts_effortstype}" />
 					<h:selectOneMenu id="newEffortType_add"
-						value="#{effortsSubTypeBean.selectedEffortType}">
-						<f:selectItems value="#{effortsSubTypeBean.listOfEffortsType}" />
+						value="#{effortsSubTypeDetailBean.selectedEffortType}">
+						<f:selectItems
+							value="#{effortsSubTypeDetailBean.listOfEffortsType}" />
 					</h:selectOneMenu>
 
-					<h:commandButton value="#{lblMsg.add}" id="addNewEffortsSubType"
-						action="#{effortsSubTypeBean.addEffortsSubType()}" />
+					<h:commandButton value="#{lblMsg.update}" id="addNewEffortsSubType"
+						action="#{effortsSubTypeDetailBean.saveEffortsSubType()}" />
 
 					<h:commandButton value="#{lblMsg.cancel}"
 						id="cancelAddEffortsSubType"
-						action="#{effortsSubTypeBean.cancel()}" />
+						action="#{effortsSubTypeDetailBean.cancel()}" />
 
 				</h:panelGrid>
 			</h:form>

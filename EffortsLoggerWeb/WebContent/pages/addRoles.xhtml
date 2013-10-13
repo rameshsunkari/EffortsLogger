@@ -16,13 +16,13 @@
 
 
 					<h:outputLabel value="#{lblMsg.role_name}" />
-					<h:inputText value="#{rolesInfoBean.role.name}" />
+					<h:inputText value="#{rolesInfoDetailBean.role.name}" />
 
-					<h:commandButton value="#{lblMsg.submit}"
-						action="#{rolesInfoBean.addRoleInfo()}" />
+					<h:commandButton value="#{lblMsg.save}"
+						action="#{rolesInfoDetailBean.saveRoleInfo()}" />
 
 					<h:commandButton value="#{lblMsg.cancel}"
-						action="#{rolesInfoBean.cancel()}" />
+						action="#{rolesInfoDetailBean.cancel()}" />
 
 
 				</h:panelGrid>

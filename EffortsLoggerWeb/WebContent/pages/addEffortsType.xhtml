@@ -9,33 +9,33 @@
 	<ui:composition template="/pages/template/commonLayout.xhtml">
 
 		<ui:define name="content">
-			<h1>Add Efforts Type</h1>
-			
+			<h1>Effort Type Detail</h1>
+
 			<h:form id="addEffortsTypeForm">
 				<h:panelGrid columns="2">
-				
-				<h:outputLabel value="#{lblMsg.efforts_type_name}" />
-				<h:inputText id="newEffortTypeId"
-						value="#{effortsTypeBean.type.name}" />
-						
-				<h:outputLabel value="#{lblMsg.role_name}" />
-				<h:selectOneMenu id="newEffortType_role"
-						value="#{effortsTypeBean.selectedRole}">
-						<f:selectItems value="#{effortsTypeBean.listOfRoles}" />
-				</h:selectOneMenu>
-				
-				<h:outputLabel value="#{lblMsg.proj_name}" />
-				<h:selectOneMenu id="newEffortType_project"
-						value="#{effortsTypeBean.selectedProject}">
-						<f:selectItems value="#{effortsTypeBean.listOfProjects}" />
-				</h:selectOneMenu>
-				
-				<h:commandButton value="#{lblMsg.add}" id="addNewEffortsType"
-						action="#{effortsTypeBean.addEffortsType()}" />
+
+					<h:outputLabel value="#{lblMsg.efforts_type_name}" />
+					<h:inputText id="newEffortTypeId"
+						value="#{effortsTypeDetailBean.type.name}" />
+
+					<h:outputLabel value="#{lblMsg.role_name}" />
+					<h:selectOneMenu id="newEffortType_role"
+						value="#{effortsTypeDetailBean.selectedRole}">
+						<f:selectItems value="#{effortsTypeDetailBean.listOfRoles}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="#{lblMsg.proj_name}" />
+					<h:selectOneMenu id="newEffortType_project"
+						value="#{effortsTypeDetailBean.selectedProject}">
+						<f:selectItems value="#{effortsTypeDetailBean.listOfProjects}" />
+					</h:selectOneMenu>
+
+					<h:commandButton value="#{lblMsg.save}" id="addNewEffortsType"
+						action="#{effortsTypeDetailBean.saveEffortsType()}" />
 
 					<h:commandButton value="#{lblMsg.cancel}" id="cancelAddEffortsType"
-						action="#{effortsTypeBean.cancel()}" />
-				
+						action="#{effortsTypeDetailBean.cancel()}" />
+
 				</h:panelGrid>
 			</h:form>
 		</ui:define>

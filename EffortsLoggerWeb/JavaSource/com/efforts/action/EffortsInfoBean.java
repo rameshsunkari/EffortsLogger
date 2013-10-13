@@ -1,24 +1,15 @@
 package com.efforts.action;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.model.SelectItem;
-import javax.mail.Session;
 import javax.naming.NamingException;
 
-import com.efforts.mail.MailUtil;
 import com.efforts.model.EffortsInfo;
-import com.efforts.model.Effortssubtype;
-import com.efforts.model.Effortstype;
 import com.efforts.model.UserInfo;
 import com.efforts.service.action.EffortsServiceBeanLocal;
-import com.efforts.service.action.ManagerInfoServiceBeanLocal;
 import com.efforts.service.login.UserServiceBeanLocal;
 import com.efforts.service.util.EffortsServiceConstants;
 import com.efforts.utilities.EffortsConstants;
@@ -35,13 +26,6 @@ public class EffortsInfoBean {
 
 	private UserServiceBeanLocal userService;
 	private EffortsServiceBeanLocal effortsService;
-	private ManagerInfoServiceBeanLocal managerService;
-
-	private List<SelectItem> listOfEffortsType;
-	private Long selectedEffortType;
-
-	private List<SelectItem> listOfEffortsSubType;
-	private Long selectedEffortSubType;
 
 	@PostConstruct
 	public void init() {
@@ -49,29 +33,6 @@ public class EffortsInfoBean {
 		Long empId = (Long) JsfUtil
 				.getSessionAttribute(EffortsConstants.EMP_ID);
 		userInfo = getUserService().getUserInfo(empId);
-
-		effortsInfo = new EffortsInfo();
-
-		List<Effortstype> effortsTypeList = getEffortsService()
-				.getAllEffortstype();
-		List<SelectItem> typeItemList = new ArrayList<SelectItem>();
-		typeItemList.add(new SelectItem("0", "Please Select a Effort Type"));
-		for (Effortstype type : effortsTypeList) {
-			typeItemList.add(new SelectItem(type.getId(), type.getName()));
-		}
-
-		setListOfEffortsType(typeItemList);
-
-		List<Effortssubtype> subTypeList = getEffortsService()
-				.getAllEffortssubtype();
-		List<SelectItem> subTypeItemList = new ArrayList<SelectItem>();
-		subTypeItemList.add(new SelectItem("0", "Please Select a Effort Type"));
-		for (Effortssubtype subType : subTypeList) {
-			subTypeItemList.add(new SelectItem(subType.getId(), subType
-					.getName()));
-		}
-
-		setListOfEffortsSubType(subTypeItemList);
 
 	}
 
@@ -100,38 +61,6 @@ public class EffortsInfoBean {
 		this.userService = userService;
 	}
 
-	public List<SelectItem> getListOfEffortsType() {
-		return listOfEffortsType;
-	}
-
-	public void setListOfEffortsType(List<SelectItem> listOfEffortsType) {
-		this.listOfEffortsType = listOfEffortsType;
-	}
-
-	public Long getSelectedEffortType() {
-		return selectedEffortType;
-	}
-
-	public void setSelectedEffortType(Long selectedEffortType) {
-		this.selectedEffortType = selectedEffortType;
-	}
-
-	public List<SelectItem> getListOfEffortsSubType() {
-		return listOfEffortsSubType;
-	}
-
-	public void setListOfEffortsSubType(List<SelectItem> listOfEffortsSubType) {
-		this.listOfEffortsSubType = listOfEffortsSubType;
-	}
-
-	public Long getSelectedEffortSubType() {
-		return selectedEffortSubType;
-	}
-
-	public void setSelectedEffortSubType(Long selectedEffortSubType) {
-		this.selectedEffortSubType = selectedEffortSubType;
-	}
-
 	public EffortsServiceBeanLocal getEffortsService() {
 		try {
 			effortsService = (EffortsServiceBeanLocal) EffortsServiceLocator
@@ -152,41 +81,6 @@ public class EffortsInfoBean {
 		return getEffortsService().getAllEmpEfforts(userInfo.getEmpid());
 	}
 
-	public String cancel() {
-		return NavigationOutCome.VIEW_EFFORTS;
-	}
-
-	public String addEffortsInfo() {
-
-		Effortssubtype subType = getEffortsService().getEffortssubtypeById(
-				getSelectedEffortSubType());
-
-		effortsInfo.setEffortssubtype(subType);
-		effortsInfo.setEffortstype(subType.getEffortstype());
-
-		effortsInfo.setManagerInfo(userInfo.getManagerInfo());
-		effortsInfo.setUserInfo(userInfo);
-		effortsInfo.setProjectInfo(userInfo.getProjectInfo());
-		effortsInfo.setSubmitted_Date(new Date());
-		getEffortsService().addEffortsInfo(effortsInfo);
-
-		String userName = userInfo.getFname() + " " + userInfo.getLname();
-		// String managerName = userInfo.getManagerInfo().getFname() + " " +
-		// userInfo.getManagerInfo().getLname();
-
-		Object[] msgParams = new Object[] { userName,
-				effortsInfo.getEffortdate(), effortsInfo.getDescription(),
-				effortsInfo.getEffortstype().getName(),
-				effortsInfo.getEffortssubtype().getName(),
-				effortsInfo.getPoints(), effortsInfo.getSubmitted_Date(),
-				effortsInfo.getRemarks() };
-		MailUtil.sendMessage(userInfo.getMailid(), userInfo.getManagerInfo()
-				.getMailid(), "add_efforts_subject", new Object[] { effortsInfo
-				.getEffortdate() }, "add_efforts_content", msgParams);
-
-		return NavigationOutCome.VIEW_EFFORTS;
-	}
-
 	public String addNewEffortsInfo() {
 		return NavigationOutCome.ADD_EFFORTS;
 	}
@@ -199,18 +93,10 @@ public class EffortsInfoBean {
 		this.effortsInfo = effortsInfo;
 	}
 
-	public ManagerInfoServiceBeanLocal getManagerService() {
-		try {
-			managerService = (ManagerInfoServiceBeanLocal) EffortsServiceLocator
-					.getLocalHome(EffortsServiceConstants.ManagerServiceConstant);
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return managerService;
-	}
+	public String viewEffortsInfo(EffortsInfo effortsInfo) {
+		JsfUtil.addRequestAttribute(EffortsConstants.EFFORTS_INFO, effortsInfo);
 
-	public void setManagerService(ManagerInfoServiceBeanLocal managerService) {
-		this.managerService = managerService;
+		return NavigationOutCome.VIEW_EFFORTS_INFO;
+
 	}
 }

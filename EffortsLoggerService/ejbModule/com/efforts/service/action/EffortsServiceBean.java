@@ -109,4 +109,22 @@ public class EffortsServiceBean implements EffortsServiceBeanLocal {
 		return getEffortsInfoDAO().getEmpOfManagerEfforts(mgrId);
 	}
 
+	@Override
+	public void updateEffortsInfo(EffortsInfo effortsInfo) {
+		getEffortsInfoDAO().edit(effortsInfo);
+
+	}
+
+	@Override
+	public void updateEffortsSubType(Effortssubtype subtype) {
+		getEffortsSubTypeDAO().edit(subtype);
+
+	}
+
+	@Override
+	public void updateEffortsType(Effortstype type) {
+		getEffortsTypeDAO().edit(type);
+
+	}
+
 }

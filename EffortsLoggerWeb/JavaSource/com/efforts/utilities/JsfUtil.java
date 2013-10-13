@@ -1,6 +1,8 @@
 package com.efforts.utilities;
 
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -60,7 +62,7 @@ public class JsfUtil {
 	 * @param attName
 	 * @param value
 	 */
-	public static void addRequestAttribute(String attName, String value) {
+	public static void addRequestAttribute(String attName, Object value) {
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context
 				.getExternalContext().getRequest();
@@ -95,4 +97,13 @@ public class JsfUtil {
 
 		httpSession.removeAttribute(attName);;
 	}
+	
+	  public static String getRequestParameter(String key) {
+	        return FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(key);
+	    }
+
+	    public static Object getObjectFromRequestParameter(String requestParameterName, Converter converter, UIComponent component) {
+	        String theId = JsfUtil.getRequestParameter(requestParameterName);
+	        return converter.getAsObject(FacesContext.getCurrentInstance(), component, theId);
+	    }
 }

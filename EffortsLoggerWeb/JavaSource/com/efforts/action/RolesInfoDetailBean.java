@@ -19,15 +19,23 @@ import com.efforts.utilities.NavigationOutCome;
 
 @ManagedBean
 @RequestScoped
-public class RolesInfoBean {
+public class RolesInfoDetailBean {
 
+	private boolean newRole;
 	// @EJB
 	private RolesServiceBeanLocal rolesService;
-
 	// private RolesServiceBeanLocal rolesService = new RolesServiceBean();
+	private RolesInfo role;
 
 	@PostConstruct
 	private void init() {
+
+		role = (RolesInfo) JsfUtil
+				.getRequestAttribute(EffortsConstants.ROLE_INFO);
+		if (role == null) {
+			newRole = true;
+			role = new RolesInfo();
+		}
 	}
 
 	public RolesServiceBeanLocal getRolesService() {
@@ -45,17 +53,40 @@ public class RolesInfoBean {
 		this.rolesService = rolesService;
 	}
 
-	public List<RolesInfo> getListOfRoles() {
-		return getRolesService().getAllRoles();
+	public RolesInfo getRole() {
+		return role;
 	}
 
-	public String addRole() {
-		return NavigationOutCome.ADD_ROLES;
+	public void setRole(RolesInfo role) {
+		this.role = role;
 	}
 
-	public String viewRoleInfo(RolesInfo roleInfo) {
-		JsfUtil.addRequestAttribute(EffortsConstants.ROLE_INFO, roleInfo);
-		return NavigationOutCome.VIEW_ROLES_INFO;
+	public String saveRoleInfo() {
+		String result;
+
+		if (newRole) {
+			getRolesService().addRole(role);
+			MessageUtility.addSuccessMessage("roles_add_success");
+		} else {
+			getRolesService().updateRole(role);
+			MessageUtility.addSuccessMessage("roles_update_success");
+		}
+		result = NavigationOutCome.VIEW_ROLES;
+
+		return result;
+
+	}
+
+	public String cancel() {
+		return NavigationOutCome.VIEW_ROLES;
+	}
+
+	public boolean isNewRole() {
+		return newRole;
+	}
+
+	public void setNewRole(boolean newRole) {
+		this.newRole = newRole;
 	}
 
 }

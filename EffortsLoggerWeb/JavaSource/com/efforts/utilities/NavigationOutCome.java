@@ -19,4 +19,10 @@ public class NavigationOutCome {
 	public static final String VIEW_EFFORTS_SUB_TYPE = "viewEffortsSubType";
 	public static final String ADD_EFFORTS_TYPE = "addEffortsType";
 	public static final String ADD_EFFORTS_SUB_TYPE = "addEffortsSubType";
+	public static final String VIEW_EFFORTS_INFO = "viewEffortsInfo";
+	public static final String VIEW_EFFORTS_SUBTYPE_INFO="viewEffortsSubTypeInfo";
+	public static final String VIEW_EFFORTS_TYPE_INFO="viewEffortsTypeInfo";
+	public static final String VIEW_MEMBERS_INFO = "viewMemberInfo";
+	public static final String VIEW_ROLES_INFO = "viewRoleInfo";
+	public static final String VIEW_PROJECTS_INFO = "viewProjectInfo";
 }

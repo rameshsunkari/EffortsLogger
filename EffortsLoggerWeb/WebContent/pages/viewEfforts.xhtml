@@ -22,8 +22,10 @@
 						<!-- column header -->
 						<f:facet name="header">#{lblMsg.efforts_id}</f:facet>
 						<!-- row record -->
-    				#{effort.id}
-    			</h:column>
+						<h:commandLink action="#{effortsInfoBean.viewEffortsInfo(effort)}"
+							value="#{effort.id}" />
+
+					</h:column>
 
 					<h:column>
 						<!-- column header -->
@@ -53,17 +55,17 @@
 						<h:outputText value="#{effort.effortdate}">
 							<f:convertDateTime pattern="dd-MM-yyyy" />
 						</h:outputText>
-    				
-    			</h:column>
+
+					</h:column>
 
 					<h:column>
 						<!-- column header -->
 						<f:facet name="header">#{lblMsg.efforts_submitted_date}</f:facet>
 						<!-- row record -->
-	    				<h:outputText value="#{effort.submitted_Date}">
-								<f:convertDateTime pattern="dd-MM-yyyy" />
+						<h:outputText value="#{effort.submitted_Date}">
+							<f:convertDateTime pattern="dd-MM-yyyy" />
 						</h:outputText>
-    			</h:column>
+					</h:column>
 
 					<h:column>
 						<!-- column header -->

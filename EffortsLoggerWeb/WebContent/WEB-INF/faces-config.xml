@@ -54,6 +54,10 @@
    <from-outcome>addEfforts</from-outcome>
    <to-view-id>/pages/addEfforts.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>viewEffortsInfo</from-outcome>
+   <to-view-id>/pages/addEfforts.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/pages/addEfforts.xhtml</from-view-id>
@@ -66,6 +70,10 @@
   <from-view-id>/pages/viewMembers.xhtml</from-view-id>
   <navigation-case>
    <from-outcome>addMembers</from-outcome>
+   <to-view-id>/pages/addMembers.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>viewMemberInfo</from-outcome>
    <to-view-id>/pages/addMembers.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
@@ -82,6 +90,10 @@
    <from-outcome>addProjects</from-outcome>
    <to-view-id>/pages/addProjects.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>viewProjectInfo</from-outcome>
+   <to-view-id>/pages/addProjects.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/pages/addProjects.xhtml</from-view-id>
@@ -94,6 +106,10 @@
   <from-view-id>/pages/viewRoles.xhtml</from-view-id>
   <navigation-case>
    <from-outcome>addRoles</from-outcome>
+   <to-view-id>/pages/addRoles.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>viewRoleInfo</from-outcome>
    <to-view-id>/pages/addRoles.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
@@ -110,6 +126,10 @@
    <from-outcome>addEffortsSubType</from-outcome>
    <to-view-id>/pages/addEffortsSubType.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>viewEffortsSubTypeInfo</from-outcome>
+   <to-view-id>/pages/addEffortsSubType.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/pages/addEffortsSubType.xhtml</from-view-id>
@@ -124,6 +144,10 @@
    <from-outcome>addEffortsType</from-outcome>
    <to-view-id>/pages/addEffortsType.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>viewEffortsTypeInfo</from-outcome>
+   <to-view-id>/pages/addEffortsType.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/pages/addEffortsType.xhtml</from-view-id>
@@ -133,10 +157,10 @@
   </navigation-case>
  </navigation-rule>
  <application>
- 	<message-bundle>resources.application</message-bundle>
- 	<locale-config>
- 		<default-locale>en</default-locale>
- 	</locale-config>
+  <message-bundle>resources.application</message-bundle>
+  <locale-config>
+   <default-locale>en</default-locale>
+  </locale-config>
   <resource-bundle>
    <base-name>com.efforts.messages.LabelMessages</base-name>
    <var>lblMsg</var>

@@ -9,7 +9,6 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transaction;
 
 import org.apache.log4j.Logger;
 
@@ -33,7 +32,7 @@ public class ProjectInfoServiceBean implements ProjectInfoServiceBeanLocal {
 	 * Default constructor.
 	 */
 	public ProjectInfoServiceBean() {
-		
+
 	}
 
 	@Override
@@ -63,8 +62,14 @@ public class ProjectInfoServiceBean implements ProjectInfoServiceBeanLocal {
 
 	@Override
 	public ProjectInfo getProjectById(Long projectId) {
-		
+
 		return getProjectDAO().getProjectById(projectId);
+	}
+
+	@Override
+	public void updateProjectInfo(ProjectInfo project) {
+		getProjectDAO().edit(project);
+
 	}
 
 }

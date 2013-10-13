@@ -62,4 +62,10 @@ public class RolesServiceBean implements RolesServiceBeanLocal {
 		return getRolesDAO().getRoleById(roleId);
 	}
 
+	@Override
+	public void updateRole(RolesInfo role) {
+		getRolesDAO().edit(role);
+
+	}
+
 }

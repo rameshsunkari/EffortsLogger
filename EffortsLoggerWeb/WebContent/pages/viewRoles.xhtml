@@ -20,7 +20,8 @@
     				<!-- column header -->
     				<f:facet name="header">#{lblMsg.role_id}</f:facet>
     				<!-- row record -->
-    				#{roles.id}
+    				<h:commandLink action="#{rolesInfoBean.viewRoleInfo(roles)}" value="#{roles.id}" />
+    				
     			</h:column>
  
     			<h:column>

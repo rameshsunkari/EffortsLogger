@@ -10,27 +10,28 @@
 
 
 		<ui:define name="content">
-		<h1>Add Projects</h1>
+			<h1>Add Projects</h1>
 			<h:form id="projectAddForm">
 
 				<h:panelGrid columns="2">
 
 
 					<h:outputLabel value="#{lblMsg.project_name}" />
-					<h:inputText value="#{projectInfoBean.project.name}" />
+					<h:inputText value="#{projectInfoDetailBean.project.name}" />
 
-					<h:outputLabel id="project_manager" value="#{lblMsg.project_manager}" />
-					<h:selectOneMenu value="#{projectInfoBean.selectedManager}">
-						<f:selectItems value="#{projectInfoBean.listOfManagers}" />
+					<h:outputLabel id="project_manager"
+						value="#{lblMsg.project_manager}" />
+					<h:selectOneMenu value="#{projectInfoDetailBean.selectedManager}">
+						<f:selectItems value="#{projectInfoDetailBean.listOfManagers}" />
 
 					</h:selectOneMenu>
 
 
 					<h:commandButton value="#{lblMsg.submit}"
-						action="#{projectInfoBean.addProjectInfo()}" />
+						action="#{projectInfoDetailBean.addProjectInfo()}" />
 
 					<h:commandButton value="#{lblMsg.cancel}"
-						action="#{projectInfoBean.cancel()}" />
+						action="#{projectInfoDetailBean.cancel()}" />
 
 
 				</h:panelGrid>
