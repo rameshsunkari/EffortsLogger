@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1>Add Members</h1>
+			<h:form id="memberAddForm">
+				<h:panelGrid columns="2">
+
+					<h:outputLabel value="#{lblMsg.empid}" />
+					<h:inputText id="memberId" value="#{userAccountBean.newUser.empid}" />
+
+					<h:outputLabel value="#{lblMsg.f_name}" />
+					<h:inputText id="memberFName" value="#{userAccountBean.newUser.fname}" />
+
+					<h:outputLabel value="#{lblMsg.l_name}" />
+					<h:inputText id="memberLName" value="#{userAccountBean.newUser.lname}" />
+					
+					<h:outputLabel value="#{lblMsg.emailid}" />
+					<h:inputText id="memberMailId" value="#{userAccountBean.newUser.mailid}" />
+
+
+					<h:outputLabel value="#{lblMsg.is_lead}" />
+					<h:selectBooleanCheckbox id="memberLead" value="#{userAccountBean.lead}" /> 
+
+					<h:outputLabel value="#{lblMsg.emp_role}" />
+
+					<h:selectOneMenu id="empRole" value="#{userAccountBean.selectedRole}">
+						<f:selectItems value="#{userAccountBean.listOfRoles}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="#{lblMsg.emp_project}" />
+					<h:selectOneMenu id="empProject" value="#{userAccountBean.selectedProject}">
+						<f:selectItems value="#{userAccountBean.listOfProjects}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="#{lblMsg.emp_manager}" />
+					<h:selectOneMenu id="empManager" value="#{userAccountBean.selectedManager}">
+						<f:selectItems value="#{userAccountBean.listOfManagers}" />
+					</h:selectOneMenu>
+
+
+
+
+					<h:commandButton value="#{lblMsg.add}"
+						action="#{userAccountBean.addMember()}" />
+
+					<h:commandButton value="#{lblMsg.cancel}"
+						action="#{userAccountBean.cancel()}" />
+
+
+				</h:panelGrid>
+
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

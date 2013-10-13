@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#index.xhtml" PATH="/pages/index.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#index.xhtml:0" NAME="item"
+   PATH="/pages/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="failure::#pages#failure.xhtml" NAME="output"
+    PATH="/pages/failure.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#failure.xhtml" TITLE="failure" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="success::#pages#success.xhtml"
+    NAME="output1" PATH="/pages/success.xhtml" SHAPE="-1,24"
+    TARGET="rules:#pages#success.xhtml" TITLE="success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#success.xhtml"
+  PATH="/pages/success.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#success.xhtml:0" NAME="item"
+   PATH="/pages/success.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="myAccount::#pages#myAccount.xhtml"
+    NAME="output" PATH="/pages/myAccount.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#myAccount.xhtml" TITLE="myAccount" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="logout::#pages#logout.xhtml" NAME="output1"
+    PATH="/pages/logout.xhtml" SHAPE="-1,32"
+    TARGET="rules:#pages#logout.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewEfforts::#pages#viewEfforts.xhtml"
+    NAME="output2" PATH="/pages/viewEfforts.xhtml" SHAPE="-1,24"
+    TARGET="rules:#pages#viewEfforts.xhtml" TITLE="viewEfforts" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewMembers::#pages#viewMembers.xhtml"
+    NAME="output3" PATH="/pages/viewMembers.xhtml" SHAPE="-1,40"
+    TARGET="rules:#pages#viewMembers.xhtml" TITLE="viewMembers" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewProjects::#pages#viewProjects.xhtml"
+    NAME="output4" PATH="/pages/viewProjects.xhtml" SHAPE="-1,48"
+    TARGET="rules:#pages#viewProjects.xhtml" TITLE="viewProjects" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewRoles::#pages#viewRoles.xhtml"
+    NAME="output5" PATH="/pages/viewRoles.xhtml" SHAPE="-1,56"
+    TARGET="rules:#pages#viewRoles.xhtml" TITLE="viewRoles" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="viewEffortsSubType::#pages#viewEffortsSubType.xhtml"
+    NAME="output6" PATH="/pages/viewEffortsSubType.xhtml" SHAPE="-1,64"
+    TARGET="rules:#pages#viewEffortsSubType.xhtml"
+    TITLE="viewEffortsSubType" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="viewEffortsType::#pages#viewEffortsType.xhtml" NAME="output7"
+    PATH="/pages/viewEffortsType.xhtml" SHAPE="-1,72"
+    TARGET="rules:#pages#viewEffortsType.xhtml" TITLE="viewEffortsType" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#viewEfforts.xhtml"
+  PATH="/pages/viewEfforts.xhtml" SHAPE="528,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#viewEfforts.xhtml:0" NAME="item"
+   PATH="/pages/viewEfforts.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addEfforts::#pages#addEfforts.xhtml"
+    NAME="output" PATH="/pages/addEfforts.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#addEfforts.xhtml" TITLE="addEfforts" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#addEfforts.xhtml"
+  PATH="/pages/addEfforts.xhtml" SHAPE="736,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#addEfforts.xhtml:0" NAME="item"
+   PATH="/pages/addEfforts.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="viewEfforts::#pages#viewEfforts.xhtml"
+    NAME="output" PATH="/pages/viewEfforts.xhtml" SHAPE="-1,24"
+    TARGET="rules:#pages#viewEfforts.xhtml" TITLE="viewEfforts" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#viewMembers.xhtml"
+  PATH="/pages/viewMembers.xhtml" SHAPE="528,609,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#viewMembers.xhtml:0" NAME="item"
+   PATH="/pages/viewMembers.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addMembers::#pages#addMembers.xhtml"
+    NAME="output" PATH="/pages/addMembers.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#addMembers.xhtml" TITLE="addMembers" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#addMembers.xhtml"
+  PATH="/pages/addMembers.xhtml" SHAPE="736,625,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#addMembers.xhtml:0" NAME="item"
+   PATH="/pages/addMembers.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="viewMembers::#pages#viewMembers.xhtml"
+    NAME="output" PATH="/pages/viewMembers.xhtml" SHAPE="-1,40"
+    TARGET="rules:#pages#viewMembers.xhtml" TITLE="viewMembers" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#viewProjects.xhtml"
+  PATH="/pages/viewProjects.xhtml" SHAPE="528,721,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#viewProjects.xhtml:0" NAME="item"
+   PATH="/pages/viewProjects.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addProjects::#pages#addProjects.xhtml"
+    NAME="output" PATH="/pages/addProjects.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#addProjects.xhtml" TITLE="addProjects" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#addProjects.xhtml"
+  PATH="/pages/addProjects.xhtml" SHAPE="736,737,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#addProjects.xhtml:0" NAME="item"
+   PATH="/pages/addProjects.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="viewProjects::#pages#viewProjects.xhtml"
+    NAME="output" PATH="/pages/viewProjects.xhtml" SHAPE="-1,48"
+    TARGET="rules:#pages#viewProjects.xhtml" TITLE="viewProjects" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#viewRoles.xhtml"
+  PATH="/pages/viewRoles.xhtml" SHAPE="528,833,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#viewRoles.xhtml:0" NAME="item"
+   PATH="/pages/viewRoles.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addRoles::#pages#addRoles.xhtml"
+    NAME="output" PATH="/pages/addRoles.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#addRoles.xhtml" TITLE="addRoles" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#addRoles.xhtml"
+  PATH="/pages/addRoles.xhtml" SHAPE="736,849,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#addRoles.xhtml:0" NAME="item"
+   PATH="/pages/addRoles.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="viewRoles::#pages#viewRoles.xhtml"
+    NAME="output" PATH="/pages/viewRoles.xhtml" SHAPE="-1,56"
+    TARGET="rules:#pages#viewRoles.xhtml" TITLE="viewRoles" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#viewEffortsSubType.xhtml"
+  PATH="/pages/viewEffortsSubType.xhtml" SHAPE="528,945,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#viewEffortsSubType.xhtml:0" NAME="item"
+   PATH="/pages/viewEffortsSubType.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="addEffortsSubType::#pages#addEffortsSubType.xhtml" NAME="output"
+    PATH="/pages/addEffortsSubType.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#addEffortsSubType.xhtml"
+    TITLE="addEffortsSubType" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#addEffortsSubType.xhtml"
+  PATH="/pages/addEffortsSubType.xhtml" SHAPE="736,961,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#addEffortsSubType.xhtml:0" NAME="item"
+   PATH="/pages/addEffortsSubType.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="viewEffortsSubType::#pages#viewEffortsSubType.xhtml"
+    NAME="output" PATH="/pages/viewEffortsSubType.xhtml" SHAPE="-1,64"
+    TARGET="rules:#pages#viewEffortsSubType.xhtml"
+    TITLE="viewEffortsSubType" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#viewEffortsType.xhtml"
+  PATH="/pages/viewEffortsType.xhtml" SHAPE="528,1057,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#viewEffortsType.xhtml:0" NAME="item"
+   PATH="/pages/viewEffortsType.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="addEffortsType::#pages#addEffortsType.xhtml"
+    NAME="output" PATH="/pages/addEffortsType.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#addEffortsType.xhtml" TITLE="addEffortsType" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#addEffortsType.xhtml"
+  PATH="/pages/addEffortsType.xhtml" SHAPE="736,1073,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#addEffortsType.xhtml:0" NAME="item"
+   PATH="/pages/addEffortsType.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="viewEffortsType::#pages#viewEffortsType.xhtml" NAME="output"
+    PATH="/pages/viewEffortsType.xhtml" SHAPE="-1,72"
+    TARGET="rules:#pages#viewEffortsType.xhtml" TITLE="viewEffortsType" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#myAccount.xhtml"
+  PATH="/pages/myAccount.xhtml" SHAPE="528,161,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#failure.xhtml"
+  PATH="/pages/failure.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#logout.xhtml"
+  PATH="/pages/logout.xhtml" SHAPE="528,497,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

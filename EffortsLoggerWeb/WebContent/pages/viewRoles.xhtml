@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1>Roles Defined</h1>
+			<h:form id="roleViewForm">
+			<h:dataTable value="#{rolesInfoBean.listOfRoles}" var="roles"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
+ 
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">#{lblMsg.role_id}</f:facet>
+    				<!-- row record -->
+    				#{roles.id}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">#{lblMsg.role_name}</f:facet>
+    				#{roles.name}
+    			</h:column>
+ 
+    		</h:dataTable>
+    		
+    			<h:commandLink value="Add Roles" action="#{rolesInfoBean.addRole()}" id="addRoles"/>
+    		</h:form>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

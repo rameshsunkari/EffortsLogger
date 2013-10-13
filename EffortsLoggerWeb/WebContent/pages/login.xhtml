@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<body>
+
+	<h:form>
+	<h:messages style="color:red;margin:8px;" />
+		<h:panelGrid columns="2">
+			<h:outputLabel value="#{lblMsg.usernameLabel}" />
+			<h:inputText id="username" value="#{userLoginBean.empId}"
+				required="true" requiredMessage="#{lblMsg.username_required}" validatorMessage="#{errMsg.username_validate_message}"/>
+			<h:outputLabel value="#{lblMsg.passwordLabel}" />
+			<h:inputSecret value="#{userLoginBean.password}" required="true" requiredMessage="#{lblMsg.password_required}" />
+			<h:commandButton id="submit" value="submit"
+				action="#{userLoginBean.checkLogin()}" />
+			<h:commandButton id="reset" value="reset" type="reset" />
+		</h:panelGrid>
+	</h:form>
+
+</body>
+</html>

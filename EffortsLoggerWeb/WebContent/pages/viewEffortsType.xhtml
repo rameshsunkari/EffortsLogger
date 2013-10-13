@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1>View Efforts Type</h1>
+			
+			<h:form id="viewEffortsTypeForm">
+			
+			<h:dataTable value="#{effortsTypeBean.allEffortstypes}" var="type"
+					width="300px" styleClass="order-table"
+					headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_type_id}</f:facet>
+						<!-- row record -->
+    					<h:outputText value="#{type.id}" />
+    				</h:column>
+    				<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_type_name}</f:facet>
+						<!-- row record -->
+    					<h:outputText value="#{type.name}" />
+    				</h:column>
+    				
+    				<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.role_name}</f:facet>
+						<!-- row record -->
+    					<h:outputText value="#{type.roleInfo.name}" />
+    				</h:column>
+    				<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.proj_name}</f:facet>
+						<!-- row record -->
+    					<h:outputText value="#{type.projectInfo.name}" />
+    				</h:column>
+			</h:dataTable>
+			
+			<h:commandLink value="Add Efforts Type"
+					action="#{effortsTypeBean.addNewEffortsType()}" id="addNewEffortsType" />
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

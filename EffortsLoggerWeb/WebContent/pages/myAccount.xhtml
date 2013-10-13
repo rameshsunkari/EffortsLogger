@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+		
+
+		<ui:define name="content">
+			<h1>My Account Information</h1>
+			<h:panelGrid id="userGrid" columns="2">
+			<h:outputLabel value="#{lblMsg.empid}" />
+			<h:outputText value="#{userAccountBean.userInfo.empid}" />
+			<h:outputLabel value="#{lblMsg.f_name}" />
+			<h:outputText value="#{userAccountBean.userInfo.fname}" />
+			<h:outputLabel value="#{lblMsg.l_name}" />
+			<h:outputText value="#{userAccountBean.userInfo.lname}" />
+			<h:outputLabel value="#{lblMsg.emailid}" />
+			<h:outputText value="#{userAccountBean.userInfo.mailid}" />
+			<h:outputLabel value="#{lblMsg.emp_role}" />
+			<h:outputText value="#{userAccountBean.userInfo.rolesInfo.name}" />
+			<h:outputLabel value="#{lblMsg.emp_project}" />
+			<h:outputText value="#{userAccountBean.userInfo.projectInfo.name}" />
+			<h:outputLabel value="#{lblMsg.manager_mail}" />
+			<h:outputText value="#{userAccountBean.userInfo.managerInfo.mailid}" />
+			
+			
+			</h:panelGrid>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>
