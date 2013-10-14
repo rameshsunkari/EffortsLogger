@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1>View Members</h1>
+			<h:form id="memberViewForm">
+
+				<h:dataTable value="#{memberInfoBean.managerMembersList}"
+					var="member" width="300px" styleClass="order-table"
+					headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.empid}</f:facet>
+						<!-- row record -->
+						<h:commandLink action="#{memberInfoBean.viewMemberInfo(member)}"
+							value="#{member.empid}" />
+
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.f_name}</f:facet>
+    				#{member.fname}
+    			</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.l_name}</f:facet>
+    				#{member.lname}
+    			</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.emailid}</f:facet>
+    				#{member.mailid}
+    			</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.emp_role}</f:facet>
+    				#{member.rolesInfo.name}
+    			</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.is_lead}</f:facet>
+    				#{member.isLead}
+    			</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.emp_project}</f:facet>
+    				#{member.projectInfo.name}
+    			</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.emp_manager}</f:facet>
+    				#{member.managerInfo.fname} #{member.managerInfo.lname}
+    			</h:column>
+
+
+
+				</h:dataTable>
+
+				<h:commandLink value="Add Member"
+					action="#{memberInfoBean.addNewMember()}" id="addProject" />
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

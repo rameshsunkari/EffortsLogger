@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1>View Efforts</h1>
+
+			<h:form id="viewEffortsForm">
+
+			<div id="effortsPagination" align="right">
+				<h:outputText
+					value="#{effortsInfoBean.pagination.pageFirstItem + 1}..#{effortsInfoBean.pagination.pageLastItem + 1}/#{effortsInfoBean.pagination.itemsCount}" />&nbsp;
+                <h:selectOneMenu id="rowsPerPage" value="#{effortsInfoBean.rowsPerPage}">
+				    <f:ajax execute="@this" render="@form"/>
+				    <f:selectItem itemValue="5" />
+				    <f:selectItem itemValue="10" />
+				</h:selectOneMenu>
+                    
+                <h:commandLink id="effortsPrevLink"
+					action="#{effortsInfoBean.previous}"
+					value="#{lblMsg.previous}"
+					rendered="#{effortsInfoBean.pagination.hasPreviousPage}" />&nbsp;
+                <h:commandLink id="effortsNextLink"
+					action="#{effortsInfoBean.next}"
+					value="#{lblMsg.next}"
+					rendered="#{effortsInfoBean.pagination.hasNextPage}" />&nbsp;
+                    
+				</div>
+				<h:dataTable value="#{effortsInfoBean.items}" var="effort"
+					width="300px" styleClass="order-table" 
+					headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_id}</f:facet>
+						<!-- row record -->
+						<h:commandLink action="#{effortsInfoBean.viewEffortsInfo(effort)}"
+							value="#{effort.id}" />
+
+					</h:column>
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_effortstype}</f:facet>
+						<!-- row record -->
+    				#{effort.effortstype.name}
+    			</h:column>
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_effortssubtype}</f:facet>
+						<!-- row record -->
+    				#{effort.effortssubtype.name}
+    			</h:column>
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_description}</f:facet>
+						<!-- row record -->
+    				#{effort.description}
+    			</h:column>
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_effortdate}</f:facet>
+						<!-- row record -->
+						<h:outputText value="#{effort.effortdate}">
+							<f:convertDateTime pattern="dd-MM-yyyy" />
+						</h:outputText>
+
+					</h:column>
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_submitted_date}</f:facet>
+						<!-- row record -->
+						<h:outputText value="#{effort.submitted_Date}">
+							<f:convertDateTime pattern="dd-MM-yyyy" />
+						</h:outputText>
+					</h:column>
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_points}</f:facet>
+						<!-- row record -->
+    				#{effort.points}
+    			</h:column>
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.efforts_remarks}</f:facet>
+						<!-- row record -->
+    				#{effort.remarks}
+    			</h:column>
+
+
+				</h:dataTable>
+
+
+
+
+				<h:commandLink value="Add Efforts"
+					action="#{effortsInfoBean.addNewEffortsInfo()}" id="addEfforts" /> 
+				<h:commandButton action="#{effortsInfoBean.exportToExcel()}" value="#{lblMsg.download_excel}" /> 
+				<h:commandButton action="#{effortsInfoBean.exportToPDF()}" value="#{lblMsg.download_pdf}" /> 
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

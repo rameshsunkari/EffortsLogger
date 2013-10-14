@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1>Projects Defined</h1>
+			<h:form id="projectViewForm">
+				<h:dataTable value="#{projectInfoBean.listOfProjects}" var="project"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">#{lblMsg.project_id}</f:facet>
+						<!-- row record -->
+						<h:commandLink
+							action="#{projectInfoBean.viewProjectInfo(project)}"
+							value="#{project.id}" />
+
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.project_name}</f:facet>
+    				#{project.name}
+    			</h:column>
+
+					<h:column>
+						<f:facet name="header">#{lblMsg.project_manager}</f:facet>
+    				#{project.managerInfo.fname} #{project.managerInfo.lname}
+    			</h:column>
+
+				</h:dataTable>
+
+				<h:commandLink value="Add Project"
+					action="#{projectInfoBean.addProject()}" id="addProject" />
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

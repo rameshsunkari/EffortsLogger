@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<h:outputScript name="javascript/efforts/userlogin.js" />
+</h:head>
+<body>
+	<ui:composition>
+		<div>
+			<h:form id="leftForm">
+				Logged in:
+				<h:commandLink action="#{userActionBean.myAccount()}" id="userInfo">#{userActionBean.userInfo.fname}, #{userActionBean.userInfo.lname} </h:commandLink> <br/><br/>
+				<h:panelGrid columns="1">
+
+					<h:commandLink value="Members" action="#{userActionBean.members()}"
+						id="members" rendered="#{userActionBean.userInfo.isLead == '1'}" />
+					<h:commandLink value="Projects"
+						action="#{userActionBean.projects()}" id="projects"
+						rendered="#{userActionBean.userInfo.isLead  == '1'}" />
+					<h:commandLink value="Roles" action="#{userActionBean.roles()}"
+						id="roles" rendered="#{userActionBean.userInfo.isLead  == '1'}" />
+
+					<br />
+					<h:commandLink value="Efforts Type"
+						action="#{userActionBean.viewEffortsType()}" id="viewEffortsType"
+						rendered="#{userActionBean.userInfo.isLead  == '1'}" />
+					<h:commandLink value="Efforts SubType"
+						action="#{userActionBean.viewEffortsSubType()}"
+						id="viewEffortsSubType"
+						rendered="#{userActionBean.userInfo.isLead  == '1'}" />
+					<h:commandLink value="Efforts"
+						action="#{userActionBean.viewEfforts()}" id="viewEfforts" />
+
+					<br />
+
+					<h:commandLink value="Logout" action="#{userActionBean.logout}"
+						id="logout" />
+
+
+				</h:panelGrid>
+			</h:form>
+		</div>
+
+
+	</ui:composition>
+</body>
+</html>
+
+

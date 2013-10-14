@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition template="/pages/template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1>Member Detail</h1>
+			<h:form id="memberAddForm">
+				<h:panelGrid columns="2">
+
+					<h:outputLabel value="#{lblMsg.empid}" />
+					<h:inputText id="memberId" value="#{memberInfoDetailBean.newUser.empid}" />
+
+					<h:outputLabel value="#{lblMsg.f_name}" />
+					<h:inputText id="memberFName" value="#{memberInfoDetailBean.newUser.fname}" />
+
+					<h:outputLabel value="#{lblMsg.l_name}" />
+					<h:inputText id="memberLName" value="#{memberInfoDetailBean.newUser.lname}" />
+					
+					<h:outputLabel value="#{lblMsg.emailid}" />
+					<h:inputText id="memberMailId" value="#{memberInfoDetailBean.newUser.mailid}" />
+
+
+					<h:outputLabel value="#{lblMsg.is_lead}" />
+					<h:selectBooleanCheckbox id="memberLead" value="#{memberInfoDetailBean.lead}" /> 
+
+					<h:outputLabel value="#{lblMsg.emp_role}" />
+
+					<h:selectOneMenu id="empRole" value="#{memberInfoDetailBean.selectedRole}">
+						<f:selectItems value="#{memberInfoDetailBean.listOfRoles}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="#{lblMsg.emp_project}" />
+					<h:selectOneMenu id="empProject" value="#{memberInfoDetailBean.selectedProject}">
+						<f:selectItems value="#{memberInfoDetailBean.listOfProjects}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="#{lblMsg.emp_manager}" />
+					<h:selectOneMenu id="empManager" value="#{memberInfoDetailBean.selectedManager}">
+						<f:selectItems value="#{memberInfoDetailBean.listOfManagers}" />
+					</h:selectOneMenu>
+
+
+
+
+					<h:commandButton value="#{lblMsg.save}"
+						action="#{memberInfoDetailBean.saveMember()}" />
+
+					<h:commandButton value="#{lblMsg.cancel}"
+						action="#{memberInfoDetailBean.cancel()}" />
+
+
+				</h:panelGrid>
+
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>
