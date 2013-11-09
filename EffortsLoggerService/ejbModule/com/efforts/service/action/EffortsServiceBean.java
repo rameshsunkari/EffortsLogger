@@ -126,5 +126,11 @@ public class EffortsServiceBean implements EffortsServiceBeanLocal {
 		getEffortsTypeDAO().edit(type);
 
 	}
+	
+	@Override
+	public List<EffortsInfo> getAllEmpEfforts(Long empId, boolean fullList,
+			int maxResults, int firstResult) {
+		return getEffortsInfoDAO().getAllEmpEfforts(empId, fullList, maxResults, firstResult);
+	}
 
 }

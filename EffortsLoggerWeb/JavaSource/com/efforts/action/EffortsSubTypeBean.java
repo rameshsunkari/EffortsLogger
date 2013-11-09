@@ -1,6 +1,5 @@
 package com.efforts.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,7 +9,6 @@ import javax.faces.model.SelectItem;
 import javax.naming.NamingException;
 
 import com.efforts.model.Effortssubtype;
-import com.efforts.model.Effortstype;
 import com.efforts.model.UserInfo;
 import com.efforts.service.action.EffortsServiceBeanLocal;
 import com.efforts.service.login.UserServiceBeanLocal;

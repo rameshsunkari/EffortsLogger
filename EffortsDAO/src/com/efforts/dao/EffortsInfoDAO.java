@@ -78,4 +78,21 @@ public class EffortsInfoDAO extends BaseDAO<EffortsInfo> {
 		return list;
 	}
 
+	public List<EffortsInfo> getAllEmpEfforts(Long empId, boolean fullList,
+			int maxResults, int firstResult) {
+		logger.debug("Getting all the efforts of an Employee: " + empId);
+
+		Query query = getEntityManager().createNamedQuery(
+				EffortsInfo.GET_ALL_EMP_EFFORTS, EffortsInfo.class);
+
+		query.setParameter(EMPID, empId);
+		if (!fullList) {
+			query.setFirstResult(firstResult);
+			query.setMaxResults(maxResults);
+		}
+		List<EffortsInfo> list = (List<EffortsInfo>) query.getResultList();
+		return list;
+
+	}
+
 }

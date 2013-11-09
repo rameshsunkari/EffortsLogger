@@ -13,8 +13,27 @@
 
 			<h:form id="viewEffortsForm">
 
-				<h:dataTable value="#{effortsInfoBean.empEffortsList}" var="effort"
-					width="300px" styleClass="order-table"
+			<div id="effortsPagination" align="right">
+				<h:outputText
+					value="#{effortsInfoBean.pagination.pageFirstItem + 1}..#{effortsInfoBean.pagination.pageLastItem + 1}/#{effortsInfoBean.pagination.itemsCount}" />&nbsp;
+                <h:selectOneMenu id="rowsPerPage" value="#{effortsInfoBean.rowsPerPage}">
+				    <f:ajax execute="@this" render="@form"/>
+				    <f:selectItem itemValue="5" />
+				    <f:selectItem itemValue="10" />
+				</h:selectOneMenu>
+                    
+                <h:commandLink id="effortsPrevLink"
+					action="#{effortsInfoBean.previous}"
+					value="#{lblMsg.previous}"
+					rendered="#{effortsInfoBean.pagination.hasPreviousPage}" />&nbsp;
+                <h:commandLink id="effortsNextLink"
+					action="#{effortsInfoBean.next}"
+					value="#{lblMsg.next}"
+					rendered="#{effortsInfoBean.pagination.hasNextPage}" />&nbsp;
+                    
+				</div>
+				<h:dataTable value="#{effortsInfoBean.items}" var="effort"
+					width="300px" styleClass="order-table" 
 					headerClass="order-table-header"
 					rowClasses="order-table-odd-row,order-table-even-row">
 
@@ -88,7 +107,9 @@
 
 
 				<h:commandLink value="Add Efforts"
-					action="#{effortsInfoBean.addNewEffortsInfo()}" id="addEfforts" />
+					action="#{effortsInfoBean.addNewEffortsInfo()}" id="addEfforts" /> 
+				<h:commandButton action="#{effortsInfoBean.exportToExcel()}" value="#{lblMsg.download_excel}" /> 
+				<h:commandButton action="#{effortsInfoBean.exportToPDF()}" value="#{lblMsg.download_pdf}" /> 
 			</h:form>
 		</ui:define>
 

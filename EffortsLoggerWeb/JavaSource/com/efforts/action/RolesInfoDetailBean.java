@@ -1,8 +1,5 @@
 package com.efforts.action;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

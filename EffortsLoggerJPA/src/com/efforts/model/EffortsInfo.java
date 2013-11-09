@@ -30,7 +30,7 @@ public class EffortsInfo implements Serializable {
 	@GeneratedValue(generator="effortsSeq")
     @SequenceGenerator(name="effortsSeq",sequenceName="EFFORTS_SEQ",schema="EFFORTS_LOGGER",allocationSize=1, initialValue=1)
 	@Column(unique = true, nullable = false, precision = 22)
-	private long id;
+	private Long id;
 
 	@Column(length = 256)
 	private String description;
@@ -45,7 +45,7 @@ public class EffortsInfo implements Serializable {
 	private String remarks;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "\"Submitted Date\"")
+	@Column(name = "submitted_Date")
 	private Date submitted_Date;
 
 	// bi-directional many-to-one association to Effortssubtype
@@ -76,11 +76,11 @@ public class EffortsInfo implements Serializable {
 	public EffortsInfo() {
 	}
 
-	public long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

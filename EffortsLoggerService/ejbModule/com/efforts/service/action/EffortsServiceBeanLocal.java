@@ -38,5 +38,8 @@ public interface EffortsServiceBeanLocal {
 	public List<EffortsInfo> getAllEmpEfforts(Long empId);
 
 	public List<EffortsInfo> getEmpOfManagerEfforts(Long mgrId);
+	
+	public List<EffortsInfo> getAllEmpEfforts(Long empId, boolean fullList,
+			int maxResults, int firstResult) ;
 
 }

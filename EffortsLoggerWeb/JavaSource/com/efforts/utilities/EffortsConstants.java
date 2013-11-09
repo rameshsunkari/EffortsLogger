@@ -10,4 +10,5 @@ public class EffortsConstants {
 	public static final String ROLE_INFO = "roleInfo";
 	public static final String MEMBER_INFO = "memberInfo";
 	public static final String PROJECT_INFO = "projectInfo";
+	public static final int ROWS_PER_PAGE = 5;
 }

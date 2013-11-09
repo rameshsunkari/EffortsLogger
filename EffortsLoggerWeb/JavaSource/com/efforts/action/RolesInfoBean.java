@@ -1,6 +1,5 @@
 package com.efforts.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -14,7 +13,6 @@ import com.efforts.service.util.EffortsServiceConstants;
 import com.efforts.utilities.EffortsConstants;
 import com.efforts.utilities.EffortsServiceLocator;
 import com.efforts.utilities.JsfUtil;
-import com.efforts.utilities.MessageUtility;
 import com.efforts.utilities.NavigationOutCome;
 
 @ManagedBean
